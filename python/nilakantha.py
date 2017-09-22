@@ -1,9 +1,11 @@
+#!/usr/bin/env python
+
 import math
 import argparse
-from series_summer import SeriesSummer
+from sum_series import SumSeries
 
 def evaluate_nilakantha(n):
-    return math.pow(-1,n+1) * 4.0 / (2*n*(2*n+1)*(2*n+2))
+    return 3 if n == 0 else math.pow(-1,n+1) * 4.0 / (2*n*(2*n+1)*(2*n+2))
 
 if __name__ == '__main__':
 
@@ -13,8 +15,5 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     
-    data = { 0: 3.0 } 
-
-    nilakantha_summer = SeriesSummer(evaluate_nilakantha, args.num_terms, args.precision, data)
-    nilakantha_summer.run()
+    SumSeries(evaluate_nilakantha, args.num_terms, args.precision)
 

@@ -39,32 +39,35 @@ class Evaluator(threading.Thread):
             self.completed[index] = value
             self.pending.task_done()
 
-class SeriesSummer(object):
+def SumSeries(evaluate, num_terms, precision):
 
-    def __init__(self,evaluate,num_terms,precision,completed={}):
-        
-        self.pending = Queue.Queue()
-        self.stop = threading.Event()
+    pending = Queue.Queue()
+    completed = {}
+    evaluation_complete = threading.Event()
 
-        for index in range(1,num_terms):
-            if index not in completed:
-                self.pending.put(index)
+    for index in range(0,num_terms):
+        pending.put(index)
 
-        self.aggregator = Aggregator(completed,self.stop,precision)
+    aggregator = Aggregator(completed,evaluation_complete,precision)
 
-        num_cores = multiprocessing.cpu_count()
+    num_cores = multiprocessing.cpu_count()
 
-        self.evaluators = []
-        for t in range(num_cores-1):
-            evaluator = Evaluator(self.pending,completed,evaluate)
-            self.evaluators.append(evaluator)
+    evaluators = []
 
-    def run(self):
+    for t in range(num_cores-1):
+        evaluator = Evaluator(pending,completed,evaluate)
+        evaluators.append(evaluator)
 
-        for evaluator in self.evaluators:
-            evaluator.start()
+    for evaluator in evaluators:
+        evaluator.start()
 
-        self.aggregator.start()
-        self.pending.join()
-        self.stop.set()
+    aggregator.start()
+    pending.join()
+    evaluation_complete.set()
 
+if __name__ == '__main__':
+
+    def evaluate(n):
+        return n
+
+    SumSeries(evaluate,10,6)
