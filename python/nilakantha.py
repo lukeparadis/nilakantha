@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser('Calculate Nilkantha series summation.')
     parser.add_argument('num_terms', type=int)
-    parser.add_argument('--precision', type=int, default=6)
+    parser.add_argument('precision', type=int, default=6)
     
     args = parser.parse_args()
     

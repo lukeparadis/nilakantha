@@ -79,8 +79,7 @@ void Evaluate(  std::function<double(int)> evaluate,
 
 void SumSeries( std::function<double(int)> evaluate,
                 int num_terms,
-                int precision,
-                int num_threads ) {
+                int precision ) {
 
   std::queue<int> pending;
   for( int k = 0; k < num_terms; k++ )
@@ -90,8 +89,7 @@ void SumSeries( std::function<double(int)> evaluate,
   std::mutex pending_mutex;
   std::mutex complete_mutex;
 
-  if (num_threads == -1)
-    num_threads = std::thread::hardware_concurrency();
+  int num_threads = std::thread::hardware_concurrency();
 
   std::vector<std::thread> evaluation_threads;
 

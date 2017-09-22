@@ -21,7 +21,6 @@ void Evaluate( std::function<double(int)> evaluate,
 
 void SumSeries( std::function<double(int)> evaluate,
                 int num_terms,
-                int precision,
-                int num_threads );
+                int precision );
 
 #endif

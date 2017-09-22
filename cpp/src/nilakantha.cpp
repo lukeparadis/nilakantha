@@ -2,8 +2,9 @@
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
+#include <unistd.h>
 
-double evaluate_nilakantha( int n ) {
+double EvaluateNilakantha( int n ) {
   if (n == 0)
     return 3.0;
   else
@@ -12,34 +13,12 @@ double evaluate_nilakantha( int n ) {
 
 int main( int argc, char ** argv ) {
 
-  /*
-  if( argc != 2 ) {
-    std::cerr << "Invalid input: wrong number of arguments." << std::endl;
-    std::cerr << "Usage: nilakantha <num_terms>" << std::endl;
-    exit(1);
-  };
-
-  int num_terms;
- 
-  try {
-    num_terms = std::stoi(argv[1]);
-  }
-  catch (...){
-    std::cerr << "Invalide input: requires positive integer <num_terms>." << std::endl;
-    std::cerr << "Usage: nilakantha <num_terms>" << std::endl;
-    exit(1);
-  }
-
-  if( num_terms < 0 ) {
-    std::cerr << "Invalide input: requires positive integer <num_terms>." << std::endl;
-    std::cerr << "Usage: nilakantha <num_terms>" << std::endl;
-  }
-  */
-
   int num_terms = std::stoi(argv[1]);
-  int precision = std::stoi(argv[2]);
-  int num_threads = std::stoi(argv[3]);
+ 
+  int precision = 6;
+  if( argc == 3 )
+    precision = std::stoi(argv[2]);
 
-  SumSeries( evaluate_nilakantha, num_terms, precision, num_threads );
+  SumSeries( EvaluateNilakantha, num_terms, precision );
 
 }
