@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lib.hpp"
+#include "series_summer.hpp"
 
 int main() {
 
