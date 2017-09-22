@@ -1,6 +1,7 @@
 import Queue
 import threading
 import multiprocessing
+import sys
 
 class Aggregator(threading.Thread):
 
@@ -9,7 +10,7 @@ class Aggregator(threading.Thread):
         self.completed = completed
         self.sum = 0
         self.index = 0
-        self.format = '{:.' + str(precision) + 'f}'
+        self.format = '{:.' + str(precision) + 'f}\n'
         self.stop = stop
 
     def run(self):
@@ -18,7 +19,8 @@ class Aggregator(threading.Thread):
                 self.sum += self.completed[self.index]
                 del self.completed[self.index]
                 self.index += 1
-                print self.format.format(self.sum)
+                sys.stdout.write(self.format.format(self.sum))
+                sys.stdout.flush()
 
 class Evaluator(threading.Thread):
 

@@ -1,4 +1,4 @@
-#include "series_summer.hpp"
+#include "sum_series.hpp"
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
@@ -11,7 +11,8 @@ double evaluate_nilakantha( int n ) {
 };
 
 int main( int argc, char ** argv ) {
- 
+
+  /*
   if( argc != 2 ) {
     std::cerr << "Invalid input: wrong number of arguments." << std::endl;
     std::cerr << "Usage: nilakantha <num_terms>" << std::endl;
@@ -33,9 +34,12 @@ int main( int argc, char ** argv ) {
     std::cerr << "Invalide input: requires positive integer <num_terms>." << std::endl;
     std::cerr << "Usage: nilakantha <num_terms>" << std::endl;
   }
+  */
 
-  int precision = 6;
+  int num_terms = std::stoi(argv[1]);
+  int precision = std::stoi(argv[2]);
+  int num_threads = std::stoi(argv[3]);
 
-  SumSeries( evaluate_nilakantha, num_terms, precision );
+  SumSeries( evaluate_nilakantha, num_terms, precision, num_threads );
 
 }

@@ -1,4 +1,4 @@
-#include "series_summer.hpp"
+#include "sum_series.hpp"
 #include <numeric>
 #include <iostream>
 #include <string>
@@ -79,7 +79,8 @@ void Evaluate(  std::function<double(int)> evaluate,
 
 void SumSeries( std::function<double(int)> evaluate,
                 int num_terms,
-                int precision ) {
+                int precision,
+                int num_threads ) {
 
   std::queue<int> pending;
   for( int k = 0; k < num_terms; k++ )
@@ -89,11 +90,12 @@ void SumSeries( std::function<double(int)> evaluate,
   std::mutex pending_mutex;
   std::mutex complete_mutex;
 
-  int num_cores = std::thread::hardware_concurrency();
+  if (num_threads == -1)
+    num_threads = std::thread::hardware_concurrency();
 
   std::vector<std::thread> evaluation_threads;
 
-  for( int k = 0; k < num_cores; k++ ) {
+  for( int k = 0; k < num_threads; k++ ) {
     //std::thread t0( Evaluate, evaluate, &pending, &complete, &pending_mutex, &complete_mutex );
     evaluation_threads.push_back( std::thread( Evaluate, evaluate, &pending, &complete, &pending_mutex, &complete_mutex ));
   };
