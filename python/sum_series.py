@@ -177,8 +177,9 @@ def SumSeries(evaluate, num_terms, precision):
     evaluation_complete.set()
 
 if __name__ == '__main__':
-    """Test SumSeries functionality with trivial series.
-    """
+    # Test SumSeries functionality with trivial series.
+    # Note, this code is only run when this module is run directly, 
+    # not when it is imported into another module.
 
     def evaluate(n):
         """Test evaluation function"""
