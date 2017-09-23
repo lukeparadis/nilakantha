@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Runnable script for computing Nilakantha approximations of PI."""
 
 import argparse
 import math

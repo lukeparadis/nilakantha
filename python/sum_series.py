@@ -1,3 +1,5 @@
+"""Multithreaded function to print approximations of an infinite series."""
+
 import Queue
 import threading
 import multiprocessing
