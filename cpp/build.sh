@@ -4,8 +4,8 @@
 if [ -d build ]; then rm -rf build; fi;
 mkdir build
 
-# Use clang for compilation
-compiler=clang++
+# Use g++ for compilation
+compiler=g++
 
 # Use c++11 standard and compile for multithreading
 compiler_flags="-std=c++11 -pthread"
