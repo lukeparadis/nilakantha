@@ -1,9 +1,9 @@
 """Multithreaded function to print approximations of an infinite series."""
 
-import Queue
-import threading
 import multiprocessing
+import Queue
 import sys
+import threading
 
 class Aggregator(threading.Thread):
     """Thread to sum terms from an infinite series and sequentially print approximate sums.

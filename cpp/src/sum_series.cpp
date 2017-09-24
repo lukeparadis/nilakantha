@@ -1,3 +1,8 @@
+/*! \file sum_series.cpp
+ *  \Author Luke Paradis
+ *  \data September, 2017
+ *  \brief Compute and print approximations of an infinite series.
+ */
 #include "sum_series.hpp"
 #include <numeric>
 #include <iostream>
@@ -134,7 +139,7 @@ void SumSeries( std::function<double(int)> evaluate,
   std::mutex pending_mutex;
   std::mutex complete_mutex;
   
-  // Number of threads to number of available cores.
+  // Number of threads set to number of available cores.
   int num_threads = std::thread::hardware_concurrency();
   
   // Vector for storing references to evaluation threads.
@@ -152,7 +157,7 @@ void SumSeries( std::function<double(int)> evaluate,
 
   // Create a thread with Aggregate as the target function followed by list of arguments to Aggregate 
   std::thread aggregation_thread( 
-      Aggregate, &complete, &pending_mutex, &complete_mutex, &evaluation_complete, precision );
+      Aggregate, &complete, &complete_mutex, &evaluation_complete, precision );
 
   // Wait for all evaluation threads to complete.
   for( std::thread & evaluation_thread : evaluation_threads ) {

@@ -1,5 +1,7 @@
 /*! \file sum_series.hpp
- *  \brief Function to compute and print approximations of an infinite series.
+ *  \Author Luke Paradis
+ *  \date September, 2017
+ *  \brief Compute and print approximations of an infinite series.
  */
 
 #ifndef __SUM_SERIES_HPP__
