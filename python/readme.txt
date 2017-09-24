@@ -8,7 +8,7 @@ Description:
 
 Tested on:
   Mac OS 10.12.3 with Python 2.7.10
-  Ubuntu 16.04 with Python
+  Ubuntu 16.04.4 with Python 2.7.12
 
 Files:
   sum_series.py - Function and thread classes to sum/print approximations of an infinite series.

@@ -8,7 +8,7 @@ Description:
 
 Tested on:
   Mac OS 10.12.3 with clang-800.0.42.1
-  Ubuntu 16.04 with g++ 
+  Ubuntu 16.04.4 with g++ 5.4.0
 
 Files:
   src/
