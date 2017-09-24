@@ -3,11 +3,12 @@
 
 import argparse
 import math
+
 from sum_series import SumSeries 
 
 def evaluate_nilakantha(n):
     """Evaluate the Nilakantha series at `n`"""
-    return 3 if n == 0 else math.pow(-1,n+1) * 4.0 / (2*n*(2*n+1)*(2*n+2))
+    return 3 if n == 0 else math.pow(-1,n+1) * 4.0 / (2.0*n*(2.0*n+1.0)*(2.0*n+2.0))
 
 if __name__ == '__main__':
 

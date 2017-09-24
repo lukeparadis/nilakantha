@@ -1,13 +1,11 @@
 /*! \file sum_series.cpp
- *  \Author Luke Paradis
- *  \data September, 2017
+ *  \author Luke Paradis
+ *  \date September, 2017
  *  \brief Compute and print approximations of an infinite series.
  */
-#include "sum_series.hpp"
-#include <numeric>
-#include <iostream>
-#include <string>
-#include <atomic>
+#include "sum_series.hpp"   // Aggregate, Evaluate, SumSeries
+#include <string>           // std::string
+#include <atomic>           // std::atomic
 
 void Aggregate( std::unordered_map<int,double> * complete,
                 std::mutex * complete_mutex,

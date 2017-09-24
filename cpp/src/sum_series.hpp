@@ -1,5 +1,5 @@
 /*! \file sum_series.hpp
- *  \Author Luke Paradis
+ *  \author Luke Paradis
  *  \date September, 2017
  *  \brief Compute and print approximations of an infinite series.
  */
@@ -7,11 +7,11 @@
 #ifndef __SUM_SERIES_HPP__
 #define __SUM_SERIES_HPP__
 
-#include <queue>
-#include <thread>
-#include <unordered_map>
-#include <functional>
-#include <atomic>
+#include <atomic>           // std::atomic
+#include <functional>       // std::function
+#include <queue>            // std::queue
+#include <thread>           // std::thread, std::mutex
+#include <unordered_map>    // std::unordered_map
 
 /** \fn Aggregate( std::unordered_map<int,double> * complete, std::mutex * complete_mutex, std::atomic<bool> * evaluation_complete, int precision );
  *
