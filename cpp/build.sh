@@ -4,8 +4,8 @@
 if [ -d build ]; then rm -rf build; fi;
 mkdir build
 
-# Use g++ for compilation
-compiler=g++
+# Use clang for compilation
+compiler=clang++
 
 # Compile to objects and link to executable
 $compiler -std=c++11 -c src/sum_series.cpp -o build/sum_series.o
